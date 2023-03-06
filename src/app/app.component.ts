@@ -6,5 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  listEstudiantes: any[] = [{
+    nombre: "juan salazar",
+    estado: "promocionado"
+  },
+  {
+    nombre: "Lucas peres",
+    estado: "regular"
+  },
+  {
+    nombre: "camilo salazar",
+    estado: "Excelente"
+  }]
+
+  mostrar = true
+
+  toogle(): void {
+    this.mostrar = !this.mostrar
+  }
+
 }
