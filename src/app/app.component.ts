@@ -8,15 +8,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   listEstudiantes: any[] = [{
     nombre: "juan salazar",
-    estado: "promocionado"
+    estado: "Promocionado"
   },
   {
     nombre: "Lucas peres",
-    estado: "regular"
+    estado: "Regular"
   },
   {
     nombre: "camilo salazar",
-    estado: "Excelente"
+    estado: "Promocionado"
+  }, {
+    nombre: "Nicolas",
+    estado: "Libre"
   }]
 
   mostrar = true
