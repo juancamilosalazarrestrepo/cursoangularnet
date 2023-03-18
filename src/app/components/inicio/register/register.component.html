@@ -5,23 +5,42 @@
                 <h3>Registrarse</h3>
                 <br>
 
-                <form [formGroup]="register">
-                    <div class="form-group">
+                <form [formGroup]="register" (ngSubmit)="registrarUsuario()">
+                    <div class="form-group" style="text-align: start;">
                         <input type="text" class="form-control"
-                            placeholder="Usuario">
+                            placeholder="Usuario" formControlName="usuario">
+                        <span
+                            *ngIf="register.get('usuario')?.hasError('required')
+                            && register.get('usuario')?.touched"
+                            class="text-danger ml-2">el usuario es <strong>Requerido</strong></span>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control"
-                            placeholder="Contraseña">
+                    <div class="form-group" style="text-align: start;">
+                        <input type="password" class="form-control"
+                            placeholder="Contraseña" formControlName="password">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('password')?.hasError('required')
+                            && register.get('password')?.touched">la
+                            contraseña es <strong>Requerida</strong></span>
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('password')?.hasError('minlength')
+                            && register.get('password')?.touched">la
+                            contraseña debe tener <strong>minimo 4 caracteres</strong></span>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control"
-                            placeholder="Repetir Contraseña">
+                    <div class="form-group" style="text-align: start;">
+                        <input type="password" class="form-control"
+                            placeholder="Repetir Contraseña"
+                            formControlName="confirmPassword">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.hasError('notSame')">Contaseñas
+                            <strong>Distintas</strong></span>
+
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-primary mr-2 btn-reg">Aceptar</button>
-                        <button class="btn btn-secondary" routerLink="/login">Volver</button>
+                        <button class="btn btn-primary mr-2 btn-reg"
+                            type="submit">Aceptar</button>
+                        <button class="btn btn-secondary"
+                            routerLink="/inicio/login">Volver</button>
                     </div>
                 </form>
             </div>

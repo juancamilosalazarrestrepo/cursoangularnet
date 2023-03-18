@@ -25,13 +25,14 @@
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-login mr-2"
-                            type="submit" [disabled]="login.invalid">Aceptar</button>
+                            type="submit" [disabled]="login.invalid"
+                            routerLink="/dashboard">Aceptar</button>
                         <button class="btn btn-secondary"
-                            routerLink="/bienvenidos">Volver</button>
+                            routerLink="/inicio">Volver</button>
                     </div>
                     <div class="form-group">
                         <a style="color:#f05f44; cursor: pointer; "
-                            routerLink="/register">Crear Cuenta</a>
+                            routerLink="/inicio/register">Crear Cuenta</a>
                     </div>
                 </form>
             </div>
