@@ -1,1 +1,30 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center" style="padding:20px ;">
+                <h3>Registrarse</h3>
+                <br>
+
+                <form [formGroup]="register">
+                    <div class="form-group">
+                        <input type="text" class="form-control"
+                            placeholder="Usuario">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control"
+                            placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control"
+                            placeholder="Repetir Contraseña">
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary mr-2 btn-reg">Aceptar</button>
+                        <button class="btn btn-secondary" routerLink="/login">Volver</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
