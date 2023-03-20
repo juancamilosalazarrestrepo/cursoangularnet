@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 //Componentes
 
@@ -43,6 +44,7 @@ import { LoadingComponent } from './shared/loading/loading.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
