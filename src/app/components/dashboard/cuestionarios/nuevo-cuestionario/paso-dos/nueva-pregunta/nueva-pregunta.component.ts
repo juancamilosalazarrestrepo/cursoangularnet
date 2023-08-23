@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Pregunta } from 'src/app/models/pregunta';
+import { FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-nueva-pregunta',
@@ -16,9 +17,23 @@ export class NuevaPreguntaComponent {
   constructor(private fb: FormBuilder, private toastr: ToastrService) {
     this.nuevaPregunta = this.fb.group({
       titulo: ['', [Validators.required]],
-      respuestas:this.fb.array([])
-     
+      respuestas: this.fb.array([]),
     });
-  
+  }
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+  }
+
+  //Devuelve FormArray de respuestas
+  get getRespuestas(): FormArray {
+    return this.nuevaPregunta.get('respuestas') as FormArray;
+  }
+  //  metodo para agregar respuesta al array
+  agregarRespuesta(): void {
+    this.getRespuestas.push(
+      this.fb.group({ descripcion: ['', [Validators.required]], esCorrecta: 0 })
+    );
   }
 }
