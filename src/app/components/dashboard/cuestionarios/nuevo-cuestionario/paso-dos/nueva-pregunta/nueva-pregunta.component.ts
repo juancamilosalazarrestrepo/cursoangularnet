@@ -44,11 +44,14 @@ export class NuevaPreguntaComponent {
   }
 
   eliminarRespuesta(index: number): void {
-    if(this.getRespuestas.length === 2){
+    if (this.getRespuestas.length === 2) {
       this.toastr.error('Debe tener al menos dos respuestas', 'Error');
-    }else{
-      this.getRespuestas.removeAt(index)
+    } else {
+      this.getRespuestas.removeAt(index);
     }
   }
-  
+
+  setRespuestaValida(index: number): void {
+    this.rtaCorrecta = index;
+  }
 }
