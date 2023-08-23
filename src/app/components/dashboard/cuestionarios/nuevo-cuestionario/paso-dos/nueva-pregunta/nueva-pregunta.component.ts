@@ -24,6 +24,7 @@ export class NuevaPreguntaComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    this.agregarRespuestasPorDefecto();
   }
 
   //Devuelve FormArray de respuestas
@@ -36,4 +37,18 @@ export class NuevaPreguntaComponent {
       this.fb.group({ descripcion: ['', [Validators.required]], esCorrecta: 0 })
     );
   }
+
+  agregarRespuestasPorDefecto(): void {
+    this.agregarRespuesta();
+    this.agregarRespuesta();
+  }
+
+  eliminarRespuesta(index: number): void {
+    if(this.getRespuestas.length === 2){
+      this.toastr.error('Debe tener al menos dos respuestas', 'Error');
+    }else{
+      this.getRespuestas.removeAt(index)
+    }
+  }
+  
 }
