@@ -31,4 +31,8 @@ export class PasoDosComponent {
     this.listPreguntas.push(pregunta);
     console.log(this.listPreguntas);
   }
+
+  eliminarPregunta(index: number): void {
+    this.listPreguntas.splice(index, 1);
+  }
 }
