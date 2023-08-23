@@ -21,4 +21,10 @@ export class PasoUnoComponent {
     });
   }
   ngOnInit(): void {}
+
+  pasoUno(): void {
+    this.cuestionarioService.tituloCuestionario = this.datosCuestionario.value.titulo;
+    this.cuestionarioService.descripcionCuestionario = this.datosCuestionario.value.descripcion;
+    this.router.navigate(['/dashboard/nuevoCuestionario/pasoDos']);
+  }
 }
