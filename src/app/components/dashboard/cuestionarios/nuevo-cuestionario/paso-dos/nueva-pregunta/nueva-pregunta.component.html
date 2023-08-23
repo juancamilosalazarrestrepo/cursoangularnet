@@ -1,1 +1,18 @@
-<p>nueva-pregunta works!</p>
+<form [formGroup]="nuevaPregunta">
+    <div class="form-group input-group-lg">
+        <input type="text" class="form-control" placeholder="Ingrese Pregunta">
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Respuesta 1">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <input type="radio" name="esCorrecta">
+            </div>
+        </div>
+        <span class="material-symbols-outlined delete-icon">delete</span>
+    </div>
+ <span class="material-symbols-outlined add-icon">add</span>
+ <br>
+ <br>
+ <button class="btn btn-primary float-right">Agregar</button>
+</form>
