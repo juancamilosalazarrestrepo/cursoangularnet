@@ -4,7 +4,7 @@ export class Cuestionario {
   id?: number;
   nombre: string;
   descripcion: string;
-  fechaDeCreacion: Date;
+  fechaDeCreacion?: Date;
   listPreguntas: Pregunta[];
 
   constructor(
