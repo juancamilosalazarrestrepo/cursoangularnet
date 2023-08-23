@@ -13,7 +13,8 @@
             Nueva Pregunta
         </h3>
         <hr>
-        <app-nueva-pregunta></app-nueva-pregunta>
+        <app-nueva-pregunta (enviarPregunta)="guardarPregunta($event)"></app-nueva-pregunta>
     </div>
 </div>
-<button class="btn btn-success btn-lg btnFinalizar" [disabled]="listPreguntas.length===0">FINALIZAR CUESTIONARIO</button>
+<button class="btn btn-success btn-lg btnFinalizar"
+    [disabled]="listPreguntas.length===0">FINALIZAR CUESTIONARIO</button>
