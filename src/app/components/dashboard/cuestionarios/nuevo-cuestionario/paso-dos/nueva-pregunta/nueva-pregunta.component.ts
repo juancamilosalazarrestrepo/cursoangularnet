@@ -65,12 +65,22 @@ export class NuevaPreguntaComponent {
     //Creamos un array de repsuestas
     const arrayRta: Respuesta[] = [];
 
-    arrayRespuestas.forEach((element: any) => {
+    arrayRespuestas.forEach((element: any,index:number) => {
       const respuesta: Respuesta = new Respuesta(element.descripcion, false);
+      if(index === this.rtaCorrecta){
+        respuesta.esCorrecta = true;
+      }
       arrayRta.push(respuesta);
     });
     //creamos una pregunta
     const pregunta: Pregunta = new Pregunta(descripcionPregunta, arrayRta);
     console.log(pregunta);
+    this.reset();
+  }
+
+  reset(): void {
+    this.nuevaPregunta.reset();
+    this.getRespuestas.clear();
+    this.agregarRespuestasPorDefecto();
   }
 }
