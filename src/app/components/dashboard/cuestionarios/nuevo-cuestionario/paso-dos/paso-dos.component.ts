@@ -48,11 +48,13 @@ export class PasoDosComponent {
     console.log(cuestionario); 
     this.loading = true; 
     //Enviamos cuestionario al back
+    console.log(cuestionario);
     this.cuestionarioService.guardarCuestionario(cuestionario).subscribe(data=>{
       this.loading=false;
       this.toastr.success('Cuestionario guardado con éxito', 'Cuestionario Registrado');
       this.router.navigate(['/dashboard']);
     },error =>{
+      console.log(error)
       this.loading=false;
       this.toastr.error('Error al guardar cuestionario', 'Error');
       this.router.navigate(['/dashboard']);

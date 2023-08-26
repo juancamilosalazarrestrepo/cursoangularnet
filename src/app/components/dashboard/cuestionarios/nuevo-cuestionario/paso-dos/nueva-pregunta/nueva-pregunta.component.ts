@@ -1,4 +1,4 @@
-import { Component , Output, EventEmitter} from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Pregunta } from 'src/app/models/pregunta';
@@ -14,7 +14,7 @@ export class NuevaPreguntaComponent {
   nuevaPregunta: FormGroup;
   //pregunta: Pregunta;
   rtaCorrecta = 0;
-  @Output () enviarPregunta = new EventEmitter<Pregunta>();
+  @Output() enviarPregunta = new EventEmitter<Pregunta>();
 
   constructor(private fb: FormBuilder, private toastr: ToastrService) {
     this.nuevaPregunta = this.fb.group({
@@ -66,20 +66,22 @@ export class NuevaPreguntaComponent {
     //Creamos un array de repsuestas
     const arrayRta: Respuesta[] = [];
 
-    arrayRespuestas.forEach((element: any,index:number) => {
+    arrayRespuestas.forEach((element: any, index: number) => {
       const respuesta: Respuesta = new Respuesta(element.descripcion, false);
-      if(index === this.rtaCorrecta){
+      if (index === this.rtaCorrecta) {
         respuesta.esCorrecta = true;
       }
       arrayRta.push(respuesta);
     });
     //creamos una pregunta
     const pregunta: Pregunta = new Pregunta(descripcionPregunta, arrayRta);
-   this.enviarPregunta.emit(pregunta);
+    this.enviarPregunta.emit(pregunta);
     this.reset();
   }
 
   reset(): void {
+    this.rtaCorrecta = 0;
+
     this.nuevaPregunta.reset();
     this.getRespuestas.clear();
     this.agregarRespuestasPorDefecto();
