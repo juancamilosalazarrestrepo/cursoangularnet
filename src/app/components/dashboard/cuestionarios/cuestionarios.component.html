@@ -1,6 +1,6 @@
 <div class="jumbotron text-center">
     <h1>Bienvenido {{nombreUsuario}}</h1>
-    <p class="lead text-muted">Cuestionarios</p>
+    <p class="lead text-muted">CUESTIONARIOS</p>
     <div class="row">
         <div class="col-lg-6 offset-lg-3">
             <button class="btn btn-success btn-block btn-cues"
@@ -9,4 +9,34 @@
             </button>
         </div>
     </div>
+
+</div>
+
+
+
+
+
+<div class="card-columns nt-3" style="margin-top: -30px;">
+
+    <div class="card bg-light"   *ngFor="let cuestionario of listCuestionarios$ |
+        async">
+        <div class="card-body text-center">
+            <h4 class="card-title">{{cuestionario.nombre}}</h4>
+            <!-- <p class="card-text" style="height: 50px; overflow-y: hidden; ">{{cuestionario.descripcion}}</p> -->
+            <p class="card-text">{{cuestionario.descripcion}}</p>
+            <button class="btn btn-success radius">Ver</button>
+            <button class="btn btn-danger radius">Eliminar</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="text-center" *ngIf="(listCuestionarios$ | async) === null" style="margin-top: -30px;"><app-loading></app-loading></div>
+<div class="text-center" style="margin-top: -30px;">
+    <h3 *ngIf="(listCuestionarios$ | async)?.length === 0 && !loading">No Hay
+        Cuestionarios para
+        mostrar</h3>
+
 </div>
