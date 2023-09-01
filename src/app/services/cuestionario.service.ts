@@ -17,10 +17,16 @@ export class CuestionarioService {
     this.tituloCuestionario = '';
     this.descripcionCuestionario = '';
     this.myAppUrl = environment.endpoint;
-    this.myApiUrl = '/api/Cuestionario';
+    this.myApiUrl = '/api/Cuestionario/';
   }
 
   guardarCuestionario(cuestionario: Cuestionario): Observable<any> {
     return this.http.post(this.myAppUrl + this.myApiUrl, cuestionario);
+  }
+
+  getListCuestionario(): Observable<any> {
+    return this.http.get(this.myAppUrl + this.myApiUrl + "GetListCuestionarioByUser");
+
+  
   }
 }
