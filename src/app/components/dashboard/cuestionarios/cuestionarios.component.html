@@ -24,8 +24,8 @@
             <h4 class="card-title">{{cuestionario.nombre}}</h4>
             <!-- <p class="card-text" style="height: 50px; overflow-y: hidden; ">{{cuestionario.descripcion}}</p> -->
             <p class="card-text">{{cuestionario.descripcion}}</p>
-            <button class="btn btn-success radius">Ver</button>
-            <button class="btn btn-danger radius">Eliminar</button>
+            <button class="btn btn-success radius" routerLink="/dashboard/verCuestionario/{{cuestionario.id}}">Ver</button>
+            <button class="btn btn-danger radius" (click)="eliminarCuestionario(cuestionario.id)">Eliminar</button>
 
         </div>
     </div>

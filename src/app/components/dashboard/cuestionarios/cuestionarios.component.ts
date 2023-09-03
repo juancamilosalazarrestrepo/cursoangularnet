@@ -20,19 +20,19 @@ export class CuestionariosComponent {
   constructor(
     private loginService: LoginService,
     private cuestionarioService: CuestionarioService,
-    toastr: ToastrService
+    private toastr: ToastrService
   ) {
-    this.listCuestionarios$ = this.cuestionarioService.getListCuestionario().pipe(
-      tap(() => {
-        this.loading = true;
-      }),
-      finalize(() => {
-        this.loading = false;
-      })
-    );;
+    this.listCuestionarios$ = this.cuestionarioService
+      .getListCuestionario()
+      .pipe(
+        tap(() => {
+          this.loading = true;
+        }),
+        finalize(() => {
+          this.loading = false;
+        })
+      );
     console.log(this.listCuestionarios$);
-
-
   }
 
   ngOnInit(): void {
@@ -55,4 +55,35 @@ export class CuestionariosComponent {
       console.log(error)
     });
   }*/
+
+  eliminarCuestionario(idCuestionario: any): void {
+    if (confirm('¿Esta seguro que desea eliminar el cuestionario?')) {
+      this.loading = true;
+      this.cuestionarioService.deleteCuestionario(idCuestionario).subscribe(
+        (data) => {
+          this.toastr.success(
+            'Cuestionario eliminado con éxito',
+            'Cuestionario Eliminado'
+          );
+          this.listCuestionarios$ = this.cuestionarioService
+            .getListCuestionario()
+            .pipe(
+              tap(() => {
+                this.loading = true;
+              }),
+              finalize(() => {
+                this.loading = false;
+              })
+            );
+          console.log(this.listCuestionarios$);
+          this.loading = false;
+        },
+        (error) => {
+          console.log(error);
+          this.loading = false;
+          this.toastr.error('Error al eliminar cuestionario', 'Error');
+        }
+      );
+    }
+  }
 }
