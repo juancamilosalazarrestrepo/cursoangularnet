@@ -4,18 +4,19 @@ export class Cuestionario {
   id?: number;
   nombre: string;
   descripcion: string;
-  fechaDeCreacion?: Date;
+  fechaCreacion?: Date;
   listPreguntas: Pregunta[];
+  usuario?: any;
 
   constructor(
     nombre: string,
     descripcion: string,
-    fechaDeCreacion: Date,
+    fechaCreacion: Date,
     listPreguntas: Pregunta[]
   ) {
     this.nombre = nombre;
     this.descripcion = descripcion;
-    this.fechaDeCreacion = fechaDeCreacion;
+    this.fechaCreacion = fechaCreacion;
     this.listPreguntas = listPreguntas;
   }
 }

@@ -23,7 +23,7 @@ export class CuestionariosComponent {
     private toastr: ToastrService
   ) {
     this.listCuestionarios$ = this.cuestionarioService
-      .getListCuestionario()
+      .getListCuestionarioByUser()
       .pipe(
         tap(() => {
           this.loading = true;
@@ -66,7 +66,7 @@ export class CuestionariosComponent {
             'Cuestionario Eliminado'
           );
           this.listCuestionarios$ = this.cuestionarioService
-            .getListCuestionario()
+            .getListCuestionarioByUser()
             .pipe(
               tap(() => {
                 this.loading = true;
