@@ -16,7 +16,12 @@ export class IngresarNombreComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    if (this.respuestaCuestionario.idcuestionario == -1) {
+      this.router.navigate(['/inicio']);
+      return;
+    }
   }
+
   siguiente(): void {
     this.respuestaCuestionario.nombreParticipante = this.nombreParticipante;
     this.router.navigate(['/inicio/pregunta']);

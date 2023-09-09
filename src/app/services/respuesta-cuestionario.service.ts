@@ -11,7 +11,7 @@ export class RespuestaCuestionarioService {
   cuestionario: Cuestionario;
   constructor() {
     this.nombreParticipante = '';
-    this.idcuestionario = 0;
+    this.idcuestionario = -1;
     this.cuestionario = {
       id: 0,
       nombre: '',

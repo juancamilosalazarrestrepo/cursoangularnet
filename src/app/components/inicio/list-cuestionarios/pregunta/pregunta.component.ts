@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CuestionarioService } from 'src/app/services/cuestionario.service';
 import { RespuestaCuestionarioService } from 'src/app/services/respuesta-cuestionario.service';
 
@@ -11,21 +12,28 @@ export class PreguntaComponent {
   idCuestionario: number;
   constructor(
     private repsuestaCuestionario: RespuestaCuestionarioService,
-    private cuestionarioService: CuestionarioService
+    private cuestionarioService: CuestionarioService,
+    private router: Router
   ) {
-    this.idCuestionario = 0;
+    this.idCuestionario = -1;
   }
   ngOnInit(): void {
     this.idCuestionario = this.repsuestaCuestionario.idcuestionario;
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     console.log(this.repsuestaCuestionario.idcuestionario);
+    if(this.idCuestionario==-1){
+      this.router.navigate(['/inicio']);
+      return;
+    }
     this.getCuestionario();
   }
 
-  getCuestionario():void{
-    this.cuestionarioService.getCuestionario(this.idCuestionario).subscribe(data=>{
-      console.log(data)
-    })
+  getCuestionario(): void {
+    this.cuestionarioService
+      .getCuestionario(this.idCuestionario)
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }
