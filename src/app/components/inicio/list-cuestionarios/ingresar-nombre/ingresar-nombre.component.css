@@ -4,3 +4,13 @@
     justify-content: center;
     align-items: center;
 }
+
+.btn-sig{
+    background-color: #f05f44;
+    border-color: #f05f44;
+    margin-left: 10px;
+}
+
+input[placeholder]{
+   text-align: center; 
+}
