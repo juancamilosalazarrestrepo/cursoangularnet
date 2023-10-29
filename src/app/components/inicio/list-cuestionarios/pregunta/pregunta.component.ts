@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Pregunta } from 'src/app/models/pregunta';
 import { CuestionarioService } from 'src/app/services/cuestionario.service';
 import { RespuestaCuestionarioService } from 'src/app/services/respuesta-cuestionario.service';
 
@@ -10,6 +11,9 @@ import { RespuestaCuestionarioService } from 'src/app/services/respuesta-cuestio
 })
 export class PreguntaComponent {
   idCuestionario: number;
+  listPreguntas:Pregunta[]=[];
+  loading=false;
+  rtaConfirmada = false;
   constructor(
     private repsuestaCuestionario: RespuestaCuestionarioService,
     private cuestionarioService: CuestionarioService,
@@ -30,10 +34,21 @@ export class PreguntaComponent {
   }
 
   getCuestionario(): void {
+    this.loading = true
     this.cuestionarioService
       .getCuestionario(this.idCuestionario)
       .subscribe((data) => {
         console.log(data);
+        this.listPreguntas = data.listPreguntas;
+        this.loading = false
       });
+  }
+
+  obtenerPregunta():string {
+    return this.listPreguntas[0].descripcion
+  }
+
+  getIndex():number {
+    return 0;
   }
 }
