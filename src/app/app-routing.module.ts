@@ -12,6 +12,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { IngresarNombreComponent } from './components/inicio/list-cuestionarios/ingresar-nombre/ingresar-nombre.component';
 import { ListCuestionariosComponent } from './components/inicio/list-cuestionarios/list-cuestionarios.component';
 import { PreguntaComponent } from './components/inicio/list-cuestionarios/pregunta/pregunta.component';
+import { RespuestacuestionarioComponent } from './components/inicio/list-cuestionarios/respuestacuestionario/respuestacuestionario.component';
 import { LoginComponent } from './components/inicio/login/login.component';
 import { RegisterComponent } from './components/inicio/register/register.component';
 
@@ -27,6 +28,10 @@ const routes: Routes = [
       { path: 'listCuestionarios', component: ListCuestionariosComponent },
       { path: 'ingresarNombre', component: IngresarNombreComponent },
       { path: 'pregunta', component: PreguntaComponent },
+      {
+        path: 'respuestaCuestionario',
+        component: RespuestacuestionarioComponent,
+      },
     ],
   },
   {
